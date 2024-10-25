@@ -1,0 +1,27 @@
+services:
+  restaurants-api:
+    build: 
+      context: ../api
+      dockerfile: Dockerfile
+    image: paris-restaurants-api
+    ports:
+      - 9090:8080 
+    environment:
+      - MESSAGE=🎉 Hello from 🐳 Compose 👋
+      - TITLE=My favorite restaurants
+      - REDIS_URL=redis-server:6379    
+    depends_on:
+      redis-server:
+        condition: service_started
+    develop:
+      watch:
+        - action: sync
+          path: ../api
+          target: /app
+        - action: rebuild
+          path: ../api/Dockerfile
+        - action: rebuild
+          path: ../api/main.go
+    networks:
+      - backend
+      - frontend

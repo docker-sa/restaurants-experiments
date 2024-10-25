@@ -1,0 +1,25 @@
+TODO:
+
+- speak about the volumes
+
+We have considered the following topics:
+
+Which themes and clusters of features might be interesting to learn more:
+Docker compose beginners 3-5 people:
+i.      Advantages of docker and compose
+ii.     Abstraction of hardware features
+iii.    Building secure containers
+iv.     Local development
+v.      Volume settings and permissions 🔴
+vi.     Space management
+vii.    IDE Debugger usage
+
+Docker compose advanced topics 3-6:
+i.      Networking in docker
+ii.     Production network setup
+iii.    Migration of DBMS, update scripts
+iv.     Monitoring, logs, debug protocols and extensions
+v.      GPU performance, sharing with host OS
+vi.     Useful professional images and tools
+vii.    Dependency management systems and reports
+viii.   Compliance reports

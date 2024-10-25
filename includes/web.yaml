@@ -1,0 +1,28 @@
+services:
+  restaurants-web:
+    build: 
+      context: ../web
+      dockerfile: Dockerfile
+    image: paris-restaurants-web
+    ports:
+      - 7070:8080 
+    environment:
+      - API_URL=http://localhost:9090  
+    depends_on:
+      restaurants-api:
+        condition: service_started
+      #redis-data-loader-prod:
+      #  condition: service_completed_successfully
+      #redis-data-loader-dev:
+      #  condition: service_completed_successfully
+    develop:
+      watch:
+        - action: sync
+          path: ../web/public
+          target: /app/public
+        - action: rebuild
+          path: ../web/Dockerfile
+        - action: rebuild
+          path: ../web/main.go
+    networks:
+      - frontend
